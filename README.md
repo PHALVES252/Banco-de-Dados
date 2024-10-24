@@ -2,4 +2,128 @@
  Conceito teoricos sobre a disciplina de banco de dados
 
 
- dddddddd
+ de 1970 para 1986, a ibm mudou o nome da linguagem de sequel para sql(Estrutury languagem language)
+
+
+ nome="ana';drop table alunos;--"
+ query f select *from alunos where='
+
+ escapagem coreta
+
+ select from alunos where nome='ana''s cafe';
+ Apostrofo é um delimitador
+
+ Escapagem, é um processo de tratar carcteres especiais inseridos em entradas de dados para que seja interpretados de forma literal
+
+ Parametros dinamicas-placeholders,
+ nome="Anas's Café"
+ cursor.execute('select from alunos where nome=?",(nome,))
+
+ con faz a ponte-comunicação
+ values(?,?,?)
+
+ select coluna1,coluna
+ from nometablea
+ where condiçao
+ [order by coluna{asc |desc]]
+
+         Select fetchall
+ cursor.execute('Select *from alunos')
+ resultados=cursor.fetchall() recupera todos os dados resultados
+
+ for linha in resultados:
+         print(linha)
+
+
+fetchone- retorna o primeiro registro encontrado
+
+cursor.execute('select nome, idade from alunos where cidade=?,(vitoria)
+resultador-
+
+
+UPDATE
+
+UPDATE NOMETABELA
+
+SET COLUNA1==VALOR--DEFINE QUAIS CAMPOS SERÃO ALTERADOS
+WHERE CONDIÇÃO
+
+
+CURSOR. EXECUTE('''
+UPDATE ALUNOS
+SET CIDADE=?
+""",('RIO DE JANIERO','Carlos'))
+
+
+  CODIGO
+
+
+import sqlite3
+
+conn=sqlite3.connect('senac_PauloHenrique')
+print("Conexão estabelecida com sucesso")
+
+cursor=conn.cursor()
+
+cursor.execute('''
+
+    CREATE TABLE IF NOT EXISTS ALUNO(
+    ID_ALUNO INTEGER PRIMARY KEY AUTOINCREMENT,
+    NOME TEXT NOT NULL,
+    IDADE INTEGER NOT NULL,CHECK(IDADE<0),
+    CIDADE TEXT
+    
+    )
+
+'''
+)
+
+
+  
+ALUNOS=[
+ ('Paulo',34,'Serra'),
+ ('gUSTAVO',19,'Vilavelha')
+
+
+
+
+]
+
+
+cursor.executemany("INSERT INTO ALUNO(NOME,IDADE,CIDADE') (VALUES(?,?,?)",ALUNOS)
+
+
+
+
+
+
+
+
+
+
+
+cursor.execute('''
+
+    CREATE TABLE IF NOT EXISTS PROFESSOR(
+    ID_PROFESSOR INTEGER PRIMARY KEY AUTOINCREMENT,
+    NOME TEXT NOT NULL
+    
+    
+    )
+
+'''
+)
+
+
+PROFESSORES=[
+ ('Ludovico')
+
+]
+
+cursor.executemany("INSERT INTO PROFESSOR(NOME) (VALUES(?)",PROFESSORES)
+
+
+
+
+cursor.close()
+conn.close()
