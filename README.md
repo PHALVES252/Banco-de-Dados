@@ -125,5 +125,56 @@ cursor.executemany("INSERT INTO PROFESSOR(NOME) (VALUES(?)",PROFESSORES)
 
 
 
+import sqlite3
+
+conn=sqlite3.connect("bancoCadastro.db")
+
+print("Conexão estabelecida com sucesso")
+
+cursor=conn.cursor()
+
+
+# Regras de negocio
+# 1 um mesmo cpf não pode ser cadastrado mais de um vez
+# 2 todos os noms devem ser salvos em letras maisculas
+
+cursor.execute('''
+
+        create table if not exists alunos(
+        id_alunos integer primary key autoincrement,
+        nome text not null,
+        cpf text not null)
+
+
+
+
+''')
+
+
+
+
+
+
+
+
+while True:
+    nome=input("Iforme o nome do aluno").upper()
+    cpf=input("Digite o cpf")
+    
+    
+    if cpf_existe(cursor,cpf):
+        print("cpf já cadastrado")
+        
+    else:
+        cursor.execute('insert into aluno (nome,cpf) Values(?,?,?)'(nome,cpf))
+
+
+
+
+cursor.close()
+conn.close
+
+
+
 cursor.close()
 conn.close()
